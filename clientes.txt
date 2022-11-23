@@ -1,0 +1,7 @@
+gabriel;delgado;27854478;retiro;false
+santiago;trivino;30209457;consulta;false
+Marcel;Ruiz;17695236;retiro;true
+Kimberly;Carvajal;31205468;deposito;false
+Ismenia;Martinez;19500698;actualizacion;false
+Mercedes;Rios;22698123;pago;false
+Mario;Ruben;211057394;retiro;false
