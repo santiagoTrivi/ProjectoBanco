@@ -4,7 +4,6 @@
  */
 package banco;
 import java.io.*;
-import java.io.IOException;
 import java.time.*;
 // 5.actualizacion: 5 min
 // 4.retiro: 4min
@@ -24,6 +23,8 @@ public class Banco {
     public static void main(String[] args) throws IOException {
         // TODO code application logic here
         LocalTime hora = LocalTime.of(8, 0);
+        LocalTime horaCierre = LocalTime.of(15, 30);
+        
     }
     
 }
