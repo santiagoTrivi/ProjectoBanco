@@ -131,11 +131,10 @@ public class ColaPersonas {
     boolean isEmpty(){
         return inicio == null;
     }
-    void cargarDocumento() throws IOException{
-        Scanner file = new Scanner(new File("clientes.txt"));
-        while(file.hasNext()){
+    void action(Scanner doc){
+        while(doc.hasNext()){
             String[] datos; // nombre, appelido, cedula, solicitud, prioridad
-            datos = file.nextLine().split(";");
+            datos = doc.nextLine().split(";");
             persona cliente = new persona();
             cliente.setNombre(datos[0]);
             cliente.setApellido(datos[1]);
@@ -144,5 +143,13 @@ public class ColaPersonas {
             cliente.setPrioridad(Boolean.parseBoolean(datos[4]));
             this.encolar(cliente);
         }
+    }
+    void cargarDocumento() throws IOException{
+        Scanner fileP = new Scanner(new File("clientesPendientes"));
+        Scanner file = new Scanner(new File("clientes.txt"));
+        this.action(fileP);
+        this.action(file);
+        File archivo = new File("clientesPendientes");
+        archivo.delete(); 
     }
 }
