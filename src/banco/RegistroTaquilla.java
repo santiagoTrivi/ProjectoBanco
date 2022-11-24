@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package banco;
-
+import java.io.*;
 /**
  *
  * @author Carvajal-Triviño
@@ -56,5 +56,20 @@ public class RegistroTaquilla {
             temp.setDown(null);
             return temp;
         }
+    }
+    void guardarRegistro(persona p) throws IOException{
+        NodoPila aux = this.top;
+        String archivo = "Taquilla.txt";
+        try(FileWriter arch = new FileWriter(archivo,true)){
+            BufferedWriter writer = new BufferedWriter(arch);
+            PrintWriter out = new PrintWriter(writer);
+            out.println(p.toString());
+        } catch (IOException e){
+        
+        }
+        
+        
+       
+        
     }
 }
