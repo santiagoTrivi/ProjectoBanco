@@ -76,15 +76,15 @@ class Nodo{
     }
 }
 public class ColaPersonas {
-        private Nodo inicio, finalc;
+    private Nodo inicio, finalc;
     void encolar(persona p){
         Nodo nodo = new Nodo();
         nodo.setCliente(p);
-        if(inicio == null){
-            inicio = finalc = nodo;  
+        if(this.inicio == null){
+            this.inicio = this.finalc = nodo;  
         }else{
-            finalc.setSiguiente(nodo);
-            finalc = finalc.getSiguiente();
+            this.finalc.setSiguiente(nodo);
+            this.finalc = this.finalc.getSiguiente();
         }   
     }
     Nodo decencolar(){
@@ -92,10 +92,10 @@ public class ColaPersonas {
             System.out.println("No hay nadie en la cola");
             return null;
         }else{
-            Nodo temp = inicio;
-            inicio = inicio.getSiguiente();
+            Nodo temp = this.inicio;
+            this.inicio = this.inicio.getSiguiente();
             temp.setSiguiente(null);
-            if(inicio == null) finalc = null;
+            if(this.inicio == null) this.finalc = null;
             return temp;
         }
     }
