@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package banco;
 import java.io.*;
 import java.util.Scanner;
@@ -95,7 +91,6 @@ public class ColaPersonas {
             Nodo temp = this.inicio;
             this.inicio = this.inicio.getSiguiente();
             temp.setSiguiente(null);
-            if(this.inicio == null) this.finalc = null;
             return temp;
         }
     }
@@ -131,10 +126,13 @@ public class ColaPersonas {
     boolean isEmpty(){
         return inicio == null;
     }
-    void action(Scanner doc){
-        while(doc.hasNext()){
+    void cargarDocumento() throws IOException{
+       // Scanner fileP = new Scanner(new File("clientesPendientes"));//
+        Scanner file = new Scanner(new File("clientes.txt"));
+      // this.action(fileP);//
+        while(file.hasNext()){
             String[] datos; // nombre, appelido, cedula, solicitud, prioridad
-            datos = doc.nextLine().split(";");
+            datos = file.nextLine().split(";");
             persona cliente = new persona();
             cliente.setNombre(datos[0]);
             cliente.setApellido(datos[1]);
@@ -143,13 +141,9 @@ public class ColaPersonas {
             cliente.setPrioridad(Boolean.parseBoolean(datos[4]));
             this.encolar(cliente);
         }
-    }
-    void cargarDocumento() throws IOException{
-        Scanner fileP = new Scanner(new File("clientesPendientes"));
-        Scanner file = new Scanner(new File("clientes.txt"));
-        this.action(fileP);
-        this.action(file);
+        
+        /*this.action(file);
         File archivo = new File("clientesPendientes");
-        archivo.delete(); 
+        archivo.delete(); */
     }
 }

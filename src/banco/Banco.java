@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
 package banco;
 import java.io.*;
 import java.time.*;
@@ -24,6 +20,14 @@ public class Banco {
         // TODO code application logic here
         LocalTime hora = LocalTime.of(8, 0);
         LocalTime horaCierre = LocalTime.of(15, 30);
+        ColaPersonas a = new ColaPersonas();
+        a.cargarDocumento();
+        Nodo persona = new Nodo();
+        persona = a.decencolar();
+        System.out.println(persona.getCliente().getNombre());
+        persona = a.decencolar();
+        System.out.println(persona.getCliente().getNombre());
+        
         
     }
     
