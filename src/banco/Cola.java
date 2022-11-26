@@ -37,7 +37,7 @@ public class Cola {
             Nodo temp = this.inicio;
             this.inicio = this.inicio.getSiguiente();
             temp.setSiguiente(null);
-                System.out.println("Hola");
+                System.out.println(temp.getCliente().toString());
 
             return temp;
         }
