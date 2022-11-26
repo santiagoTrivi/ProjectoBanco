@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 
 public class Cola {
+    
     private Nodo inicio, finalc;
     private Boolean prioridad;
     
