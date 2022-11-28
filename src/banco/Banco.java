@@ -17,11 +17,8 @@ public class Banco {
         LocalTime horaCierre = LocalTime.of(16, 0);
         Cola colaprioridad = new Cola(Boolean.TRUE);
         Cola cola  = new Cola(Boolean.FALSE); 
-        PilaR registroAct = new PilaR();
-        PilaR registroRet = new PilaR();
-        PilaR registroDep = new PilaR();
-        PilaR registroPag = new PilaR();
-        PilaR registroCon = new PilaR();
+        PilaR registro = new PilaR();
+
 
         
         Integer atendidos = 0;
@@ -40,22 +37,22 @@ public class Banco {
                 switch (x.getCliente().getSolicitud().toLowerCase()){
                 case "consulta":
                     hora = hora.plusMinutes(1).plusSeconds(50);
-                    registroCon.insertar(x.getCliente());
+                    registro.insertar(x.getCliente());
                 break;
                 case "pago":
                     hora = hora.plusMinutes(2);
-                    registroPag.insertar(x.getCliente());
+                    registro.insertar(x.getCliente());
                 break;
                 case "deposito":
                     hora = hora.plusMinutes(3);
-                    registroDep.insertar(x.getCliente());
+                    registro.insertar(x.getCliente());
                 break;
                 case "retiro":
                     hora = hora.plusMinutes(4);
-                    registroRet.insertar(x.getCliente());
+                    registro.insertar(x.getCliente());
                 case "actualizacion":
                     hora = hora.plusMinutes(5);
-                    registroAct.insertar(x.getCliente());
+                    registro.insertar(x.getCliente());
                 break;
             }
                 atendidos = 0;
@@ -68,22 +65,22 @@ public class Banco {
                 switch (x.getCliente().getSolicitud().toLowerCase()){
                 case "consulta":
                     hora = hora.plusMinutes(1).plusSeconds(50);
-                    registroCon.insertar(x.getCliente());
+                    registro.insertar(x.getCliente());
                 break;
                 case "pago":
                     hora = hora.plusMinutes(2);
-                    registroPag.insertar(x.getCliente());
+                    registro.insertar(x.getCliente());
                 break;
                 case "deposito":
                     hora = hora.plusMinutes(3);
-                    registroDep.insertar(x.getCliente());
+                    registro.insertar(x.getCliente());
                 break;
                 case "retiro":
                     hora = hora.plusMinutes(4);
-                    registroRet.insertar(x.getCliente());
+                    registro.insertar(x.getCliente());
                 case "actualizacion":
                     hora = hora.plusMinutes(5);
-                    registroAct.insertar(x.getCliente());
+                    registro.insertar(x.getCliente());
                 break;
             }
             }
@@ -93,7 +90,8 @@ public class Banco {
         } 
         cola.guardarPendientes();
         colaprioridad.guardarPendientes();
-        registroCon.guardarRegistro();
+        registro.guardarRegistro();
+
     }
 }
 
