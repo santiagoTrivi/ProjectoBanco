@@ -18,6 +18,7 @@ public class Banco {
         Cola colaprioridad = new Cola(Boolean.TRUE);
         Cola cola  = new Cola(Boolean.FALSE); 
         PilaR registro = new PilaR();
+        
 
 
         

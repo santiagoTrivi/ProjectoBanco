@@ -4,6 +4,7 @@
  */
 package banco;
 import java.io.*;
+import java.time.*;
 /**
  *
  * @author Carvajal-Triviño
@@ -58,9 +59,12 @@ public class PilaR {
         }
     }
          void guardarRegistro() throws IOException{
+             LocalDate fechaTaquilla = LocalDate.now().minusDays(1);
+             
+             
             File verificacion = new File("Taquilla.txt");
                     if(verificacion.exists()){
-                        String archivoPasado = "Taquilla 28 11 2022.txt";
+                        String archivoPasado = "Taquilla " + fechaTaquilla.toString() + ".txt";
                         verificacion.renameTo(new File (archivoPasado));
                     }
          while(!this.isEmpty()){
