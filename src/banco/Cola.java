@@ -71,7 +71,7 @@ public class Cola {
             this.leectura(nuevosclientes);
         }
         
-        pendienteClientes.delete();
+        pendienteClientes.deleteOnExit();
     }
         
     void guardarPendientes() throws IOException {
