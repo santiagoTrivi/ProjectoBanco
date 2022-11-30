@@ -88,15 +88,14 @@ public class Cola {
             this.leectura(nuevosclientes);
         }
         
-        pendienteClientes.deleteOnExit();
+        //pendienteClientes.deleteOnExit();
     }
         
     void guardarPendientes() throws IOException {
 
         String archivo = "clientesPendientes.txt";
         while(!this.isEmpty()) {
-            Persona cliente = null;
-            cliente = this.decencolar().getCliente();
+            Persona cliente = this.decencolar().getCliente();
                 try ( FileWriter fw = new FileWriter(archivo, true);  BufferedWriter bw = new BufferedWriter(fw);  PrintWriter out = new PrintWriter(bw)) {
                     out.println(cliente.toString());
                 } catch (IOException e) {
