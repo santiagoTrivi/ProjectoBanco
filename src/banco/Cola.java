@@ -24,7 +24,7 @@ public class Cola {
     public Cola() throws IOException {
         this.inicio = null;
         this.finalc = null;   
-        this.cargarDoc();
+        //this.cargarDoc();
     }
  
     Nodo decencolar(){

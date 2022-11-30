@@ -16,6 +16,7 @@ public class Banco {
         LocalTime hora = LocalTime.of(8, 0);
         LocalTime horaCierre = LocalTime.of(16, 0);
         Cola cola  = new Cola(); 
+        cola.cargarDoc();
 
         
         Integer orden = 1;
