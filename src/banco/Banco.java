@@ -27,7 +27,7 @@ public class Banco {
             }
             Nodo ciudadano;
                 if (orden <= 1){
-                   ciudadano = cola.decencolarPri();
+                   ciudadano = cola.decencolar();
                 }else {
                    ciudadano = cola.decencolar();
                 }
