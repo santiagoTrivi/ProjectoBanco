@@ -18,26 +18,22 @@ public class Banco {
         Cola cola  = new Cola(); 
 
         
-        Integer atendidos = 0, orden = 1;
+        Integer orden = 1;
         while(hora.isBefore(horaCierre)){
             if (cola.isEmpty()) {
                 System.out.println("Todos los clientes fueron atendidos, restan horas de trabajo: " + Math.abs(horaCierre.minusHours(hora.getHour()).getHour()));
                 break;
             }
-            
-            Nodo ciudadano = null;
-                while(cola.isEmpty()) {
-                    atendidos++;
+            Nodo ciudadano;
                 if (orden <= 1){
-                    cola.decencolarPri();
+                   ciudadano = cola.decencolarPri();
                 }else {
-                    cola.decencolar();
-                    atendidos++;
+                   ciudadano = cola.decencolar();
                 }
                 if (orden > 5 ) {
                     orden = 1;
                 }
-                ciudadano = cola.decencolar();
+
                 switch (ciudadano.getCliente().getSolicitud().toLowerCase()){
                 case "consulta":
                     hora = hora.plusMinutes(1).plusSeconds(50);
@@ -54,26 +50,9 @@ public class Banco {
                     hora = hora.plusMinutes(5);
                 break;
             }
-                ciudadano = cola.decencolar();
-                switch (ciudadano.getCliente().getSolicitud().toLowerCase()){
-                case "consulta":
-                    hora = hora.plusMinutes(1).plusSeconds(50);
-                break;
-                case "pago":
-                    hora = hora.plusMinutes(2);
-                break;
-                case "deposito":
-                    hora = hora.plusMinutes(3);
-                break;
-                case "retiro":
-                    hora = hora.plusMinutes(4);
-                case "actualizacion":
-                    hora = hora.plusMinutes(5);
-                break;
-            }
-            }
+            
             procesoregistro.insertarData(ciudadano.getCliente());
-            atendidos++;
+            orden++;
         }
         procesoregistro.asignacionPrimario();
         cola.guardarPendientes();

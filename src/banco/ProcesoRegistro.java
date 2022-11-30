@@ -29,6 +29,7 @@ public class ProcesoRegistro {
             break;
             case "retiro":
                 conjuntoProceso[3].insertar(data);
+            break;
             case "actualizacion":
                 conjuntoProceso[4].insertar(data);
             break;
