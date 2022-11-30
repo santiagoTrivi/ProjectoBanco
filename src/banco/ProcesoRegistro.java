@@ -25,7 +25,24 @@ public class ProcesoRegistro {
         
        
     }
-
+    void insertarData(Persona data){
+        switch (data.getSolicitud()){
+            case "consulta":
+                conjuntoProceso[0].insertar(data);
+            break;
+            case "pago":
+                conjuntoProceso[1].insertar(data);
+            break;
+            case "deposito":
+                conjuntoProceso[2].insertar(data);
+            break;
+            case "retiro":
+                conjuntoProceso[3].insertar(data);
+            case "actualizacion":
+                conjuntoProceso[4].insertar(data);
+            break;
+        }
+    }
     void alcacenamiento() throws IOException{
         for (int i = 0; i <= 4; i++) {
             conjuntoProceso[i].guardarRegistro();
