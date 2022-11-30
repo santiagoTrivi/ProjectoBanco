@@ -15,7 +15,7 @@ import java.io.*;
 // 1.pago de servicios: 2 min
 // 0.consulta: 1.5 min
 public class ProcesoRegistro {
-    PilaR conjuntoProceso[];
+    PilaR conjuntoProceso[] = new PilaR[5];
 
     public ProcesoRegistro() {
         for (int i = 0; i <= 4; i++) {

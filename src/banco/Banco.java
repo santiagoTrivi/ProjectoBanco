@@ -12,13 +12,12 @@ public class Banco {
 
     
     public static void main(String[] args) throws IOException {
-    
+        ProcesoRegistro procesoregistro = new ProcesoRegistro();
         LocalTime hora = LocalTime.of(8, 0);
         LocalTime horaCierre = LocalTime.of(16, 0);
         Cola colaprioridad = new Cola(Boolean.TRUE);
         Cola cola  = new Cola(Boolean.FALSE); 
         PilaR registro = new PilaR();
-        
 
 
         
@@ -29,31 +28,26 @@ public class Banco {
                 break;
             }
             
-            Nodo x;
+            Nodo ciudadano;
             if (atendidos > 4) {
                 if (colaprioridad.isEmpty()) {
                     continue;
                 }
-                x = colaprioridad.decencolar();
-                switch (x.getCliente().getSolicitud().toLowerCase()){
+                ciudadano = colaprioridad.decencolar();
+                switch (ciudadano.getCliente().getSolicitud().toLowerCase()){
                 case "consulta":
                     hora = hora.plusMinutes(1).plusSeconds(50);
-                    registro.insertar(x.getCliente());
                 break;
                 case "pago":
                     hora = hora.plusMinutes(2);
-                    registro.insertar(x.getCliente());
                 break;
                 case "deposito":
                     hora = hora.plusMinutes(3);
-                    registro.insertar(x.getCliente());
                 break;
                 case "retiro":
                     hora = hora.plusMinutes(4);
-                    registro.insertar(x.getCliente());
                 case "actualizacion":
                     hora = hora.plusMinutes(5);
-                    registro.insertar(x.getCliente());
                 break;
             }
                 atendidos = 0;
@@ -62,33 +56,29 @@ public class Banco {
                     atendidos++;
                     continue;
                 }
-                x = cola.decencolar();
-                switch (x.getCliente().getSolicitud().toLowerCase()){
+                ciudadano = cola.decencolar();
+                switch (ciudadano.getCliente().getSolicitud().toLowerCase()){
                 case "consulta":
                     hora = hora.plusMinutes(1).plusSeconds(50);
-                    registro.insertar(x.getCliente());
                 break;
                 case "pago":
                     hora = hora.plusMinutes(2);
-                    registro.insertar(x.getCliente());
                 break;
                 case "deposito":
                     hora = hora.plusMinutes(3);
-                    registro.insertar(x.getCliente());
                 break;
                 case "retiro":
                     hora = hora.plusMinutes(4);
-                    registro.insertar(x.getCliente());
                 case "actualizacion":
                     hora = hora.plusMinutes(5);
-                    registro.insertar(x.getCliente());
                 break;
             }
             }
 
-            
+            procesoregistro.insertarData(ciudadano.getCliente());
             atendidos++;
         } 
+        procesoregistro.alcacenamiento();
         cola.guardarPendientes();
         colaprioridad.guardarPendientes();
         registro.guardarRegistro();
