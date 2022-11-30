@@ -56,17 +56,9 @@ public class PilaR {
         }
     }
          void guardarRegistro() throws IOException{
-             LocalDate fechaTaquilla = LocalDate.now().minusDays(1);
-             
-             
-            File verificacion = new File("Taquilla.txt");
-                    if(verificacion.exists()){
-                        String archivoPasado = "Taquilla " + fechaTaquilla.toString() + ".txt";
-                        verificacion.renameTo(new File (archivoPasado));
-                    }
          while(!this.isEmpty()){
             NodoP aux = this.top;
-            String archivo = "Taquilla.txt";
+            String archivo = "Taquilla.csv";
             try(FileWriter fw = new FileWriter(archivo, true);
                     BufferedWriter bw = new BufferedWriter(fw);
                     PrintWriter out = new PrintWriter(bw))

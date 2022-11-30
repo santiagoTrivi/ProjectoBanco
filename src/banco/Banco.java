@@ -17,8 +17,6 @@ public class Banco {
         LocalTime horaCierre = LocalTime.of(16, 0);
         Cola colaprioridad = new Cola(Boolean.TRUE);
         Cola cola  = new Cola(Boolean.FALSE); 
-        PilaR registro = new PilaR();
-
 
         
         Integer atendidos = 0;
@@ -77,11 +75,10 @@ public class Banco {
 
             procesoregistro.insertarData(ciudadano.getCliente());
             atendidos++;
-        } 
-        procesoregistro.alcacenamiento();
+        }
+        procesoregistro.asignacionPrimario();
         cola.guardarPendientes();
         colaprioridad.guardarPendientes();
-        registro.guardarRegistro();
 
     }
 }

@@ -4,6 +4,7 @@
  */
 package banco;
 import java.io.*;
+import java.time.*;
 
 /**
  *
@@ -43,7 +44,24 @@ public class ProcesoRegistro {
             break;
         }
     }
-    void alcacenamiento() throws IOException{
+    void eliminarArchivo(){
+        File eliminar = new File("Taquilla.csv");
+        eliminar.deleteOnExit();      
+    }
+    void asignacionPrimario() throws IOException{
+        LocalDate fechaTaquilla = LocalDate.now().minusDays(1);
+        File verificacion = new File("Taquilla.csv");
+            if(verificacion.exists()){
+                String archivoPasado = "Taquilla " + fechaTaquilla.toString() + ".csv";
+                verificacion.renameTo(new File ("OperacionesRegistradas",archivoPasado));
+                this.eliminarArchivo();
+                this.alcacenamientoSecundario();
+            }else{
+                this.alcacenamientoSecundario();
+            }
+            
+    }
+    void alcacenamientoSecundario() throws IOException{
         for (int i = 0; i <= 4; i++) {
             conjuntoProceso[i].guardarRegistro();
         }
