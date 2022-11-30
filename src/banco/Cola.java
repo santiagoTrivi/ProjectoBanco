@@ -7,7 +7,6 @@ import java.util.Scanner;
 public class Cola {
     
     private Nodo inicio, finalc;
-    private Boolean prioridad;
     
     
     void encolar(Persona personaCli){
@@ -22,8 +21,7 @@ public class Cola {
         }
     }
     
-    public Cola(Boolean pri) throws IOException {
-        this.prioridad = pri;
+    public Cola() throws IOException {
         this.inicio = null;
         this.finalc = null;   
         this.cargarDoc();
@@ -43,7 +41,26 @@ public class Cola {
         }
 
     }
-  
+    Nodo decencolarPri() throws IOException {
+        Cola aux = new Cola();
+        Nodo casopri = new Nodo();
+        while(!this.isEmpty()){
+            if(this.inicio.getCliente().isPrioridad() && casopri.getCliente() == null){
+                casopri = this.inicio;
+                this.decencolar();
+            }else{
+                Nodo temp1 = this.decencolar();
+                aux.encolar(temp1.getCliente());
+            }
+        }
+        this.inicio = aux.inicio;
+        this.finalc = aux.finalc;
+        if(casopri.getCliente() == null){
+            System.out.println("no prioridad");
+            return this.decencolar();
+        }
+        return casopri;
+    }
     boolean isEmpty(){
         return inicio == null;
     }

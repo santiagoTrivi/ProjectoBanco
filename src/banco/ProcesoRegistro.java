@@ -1,15 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package banco;
 import java.io.*;
 import java.time.*;
 
-/**
- *
- * @author Carvajal-Triviño
- */
 // 4.actualizacion: 5 min
 // 3.retiro: 4 min
 // 2.deposito: 3 min
@@ -22,9 +14,7 @@ public class ProcesoRegistro {
         for (int i = 0; i <= 4; i++) {
             PilaR proceso = new PilaR();
             conjuntoProceso[i] = proceso;
-        }
-        
-       
+        }             
     }
     void insertarData(Persona data){
         switch (data.getSolicitud()){
