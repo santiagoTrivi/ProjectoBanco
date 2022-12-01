@@ -58,7 +58,7 @@ public class PilaR {
          void guardarRegistro() throws IOException{
          while(!this.isEmpty()){
             NodoP aux = this.top;
-            String archivo = "Taquilla.csv";
+            String archivo = "Taquilla.txt";
             try(FileWriter fw = new FileWriter(archivo, true);
                     BufferedWriter bw = new BufferedWriter(fw);
                     PrintWriter out = new PrintWriter(bw))
