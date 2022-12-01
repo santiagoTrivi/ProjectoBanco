@@ -36,14 +36,14 @@ public class ProcesoRegistro {
         }
     }
     void eliminarArchivo(){
-        File eliminar = new File("Taquilla.csv");
+        File eliminar = new File("Taquilla.txt");
         eliminar.deleteOnExit();      
     }
     void asignacionPrimario() throws IOException{
         LocalDate fechaTaquilla = LocalDate.now().minusDays(1);
-        File verificacion = new File("Taquilla.csv");
+        File verificacion = new File("Taquilla.txt");
             if(verificacion.exists()){
-                String archivoPasado = "Taquilla " + fechaTaquilla.toString() + ".csv";
+                String archivoPasado = "Taquilla " + fechaTaquilla.toString() + ".txt";
                 verificacion.renameTo(new File ("OperacionesRegistradas",archivoPasado));
                 this.eliminarArchivo();
                 this.alcacenamientoSecundario();

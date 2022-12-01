@@ -6,6 +6,7 @@ Ismenia;Martinez;19500698;actualizacion;false
 Mercedes;Rios;22698123;pago;false
 Oscar;Vegas;79456852;acutalizacion;false
 Oscar;Vegas;79456852;consulta;false
+juana;mar;24159951;actualizacion;false
 Perencemo;Angulo;123456789;pago;true
 Perencemo;Angulo;123456789;consulta;true
 Mario;Ruben;211057394;retiro;false
